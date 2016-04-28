@@ -1,0 +1,26 @@
+body {
+	font-family: 'Raleway'
+}
+.page{
+		padding-top: 70px;
+	}
+
+	.page:nth-child(2n){
+		background-color: #f5f5f5;
+	}
+
+.navbar-right li a, .navbar-brand {
+	font-weight: 800;
+	font-style: italic;
+	font-size: 20px;
+}
+
+.navbar-brand {
+
+	font-size: 25px;
+}
+#cw {
+	background-image: url('images/img1.1.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='myApp'>
-<head>
-  <title>Chongchong Wang</title>
-  <meta charset="utf-8">
-  <!-- angular -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src='angular.js'></script>
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <!-- own javascript -->
-  <!-- own css -->
-  <link rel="stylesheet" href="static/css/app.css">
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Chongchong Wang | Full Stack Web Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/br-fullpage/dist/br-fullpage.min.css"/>
+   <script type="text/javascript" src="bower_components/br-fullpage/dist/br-fullpage.min.js"></script>
+   <script src="static/app.js"></script>
+   <!-- google font -->
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="static/main.css">
 </head>
 <body>
-  <h1>Hello World</h1>
- <p>Nothing here {{'yet' + '!'}}</p>
+<section class="nav navbar navbar-default navbar-fixed-top" ng-cloak>
+    <section class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" fullpage-href='cw'>Chongchong Wang</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a fullpage-href="about">
+                        About Me
+                    </a>
+                </li>
+                <li>
+                    <a fullpage-href="projects">
+                        My Projects
+                    </a>
+                </li>
+                <li>
+                    <a fullpage-href="skills">
+                        My Skills
+                    </a>
+                </li>
+                <li>
+                    <a fullpage-href="contact">
+                        Hire Me!
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</section>
+<fullpage class="instant-size" page-class="page">
+    <section class="page" id="cw">
+        <section class="container">
+            <h1>Chongchong Wang</h1>
+        </section>
+    </section>
+    <section class="page" id="about">
+        <section class="container">
+            <h1>About Me</h1>
+        </section>
+    </section>
+    <section class="page" id="projects">
+        <section class="container">
+            <h1>projects</h1>
+        </section>
+    </section>
+    <section class="page" id="skills">
+        <section class="container">
+            <h1>skills</h1>
+        </section>
+    </section>
+    <section class="page" id="contact">
+        <section class="container">
+            <h1>contact</h1>
+        </section>
+    </section>
+</fullpage>
 </body>
 </html>
