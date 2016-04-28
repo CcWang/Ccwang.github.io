@@ -8,13 +8,15 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/br-fullpage/dist/br-fullpage.min.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/hover/css/hover.css">
    <script type="text/javascript" src="bower_components/br-fullpage/dist/br-fullpage.min.js"></script>
    <script src="static/app.js"></script>
    <!-- google font -->
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="static/main.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body>
+<body ng-controller='mainController'>
 <section class="nav navbar navbar-default navbar-fixed-top" ng-cloak>
     <section class="container">
         <div class="navbar-header">
@@ -24,27 +26,27 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" fullpage-href='cw'>Chongchong Wang</a>
+            <a class="navbar-brand hvr-float-shadow" href="#" fullpage-href='cw' style="color: white;">Chongchong Wang</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a fullpage-href="about">
+                    <a fullpage-href="about" class="hvr-float-shadow" style="color: white;">
                         About Me
                     </a>
                 </li>
                 <li>
-                    <a fullpage-href="projects">
+                    <a fullpage-href="projects" class="hvr-float-shadow" style="color: white;">
                         My Projects
                     </a>
                 </li>
                 <li>
-                    <a fullpage-href="skills">
+                    <a fullpage-href="skills" class="hvr-float-shadow" style="color: white;">
                         My Skills
                     </a>
                 </li>
                 <li>
-                    <a fullpage-href="contact">
+                    <a fullpage-href="contact" class="hvr-shutter-out-horizontal" style="color: white;">
                         Hire Me!
                     </a>
                 </li>
@@ -55,12 +57,18 @@
 <fullpage class="instant-size" page-class="page">
     <section class="page" id="cw">
         <section class="container">
-            <h1>Chongchong Wang</h1>
-        </section>
-    </section>
-    <section class="page" id="about">
-        <section class="container">
-            <h1>About Me</h1>
+            <div class="col-sm-12 text-center" id="me">
+                <h1>Hi, I'm <strong>Chongchong Wang</strong></h1>
+                <h1 ng-model='intro' id="intro" >{{intro}}</h1>
+                <div ng-if='intro.length == 24'>
+                    <button fullpage-href="contact" id="hire">
+                        AVAILABLE FOR HIRE
+                    </button>
+                </div>
+                <div ng-if='intro.length == 24'>
+                    <i class="fa fa-angle-down hvr-icon-hang" fullpage-href='about' id="down_arrow"></i>
+                </div>
+            </div>
         </section>
     </section>
     <section class="page" id="projects">
@@ -73,6 +81,11 @@
         <section class="container">
             <h1>skills</h1>
             <p>coming soon</p>
+        </section>
+    </section>
+    <section class="page" id="about">
+        <section class="container">
+            <h1>About Me</h1>
         </section>
     </section>
     <section class="page" id="contact">

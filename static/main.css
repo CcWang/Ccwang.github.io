@@ -1,5 +1,6 @@
+
 body {
-	font-family: 'Raleway'
+	font-family: 'Raleway';
 }
 .page{
 		padding-top: 70px;
@@ -23,4 +24,76 @@ body {
 	background-image: url('images/img1.1.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
+}
+.navbar-fixed-top {
+	background: black;
+	color: black;
+	-webkit-box-shadow: 0 8px 6px -6px;
+    -moz-box-shadow: 0 8px 6px -6px; 
+    box-shadow: 0 8px 6px -6px;
+}
+#me {
+	top:250px;
+	color: white;
+}
+
+#me h1 {
+	font-size: 60px;
+	font-weight: 600;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+#me #intro {
+	border-right: 2px solid #2098d1;
+	display: inline;
+	white-space: pre;
+	padding-right: 2px;
+}
+/*blink border*/
+
+@keyframes blink { 
+0% {
+            border-color: rgba(32,152,209,0.5);
+        }
+
+        50% {
+            border-color: rgba(32,152,209,0);
+        }
+
+        100% {
+            border-color: rgba(32,152,209,0.5);
+        } 
+}
+#me #intro{ /*or other element you want*/
+    animation-name: blink ;
+    animation-duration: 0.5s ;
+    animation-iteration-count: infinite ;
+    animation-direction: normal; 
+    animation-timing-function: ease;
+}
+
+/*end of blink border*/
+
+/*avaliable for hire button style*/
+#hire {
+	color: white;
+	padding: 5px 10px;
+	background: transparent;
+	font-size: 30px;
+	font-weight: 500;
+	margin-top: 50px;
+	border: 3px solid white;
+	border-radius: 25%;
+}
+#hire:hover {
+	color: #2098d1;
+	border: 5px solid #2098d1;
+}
+
+#down_arrow {
+	color: #2098d1;
+	font-size: 90px;
+	margin-top:100px;
+	font-weight: bold;
 }
