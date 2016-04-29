@@ -11,7 +11,6 @@ myApp.controller('mainController',function ($scope, mainFactory) {
 	// body...
 	var intro = "Full Stack Web Developer"
 	$scope.intro ='';
-
 	var i=0;
 	var timer = setInterval(function(){
 	 if(i<intro.length){
@@ -20,5 +19,6 @@ myApp.controller('mainController',function ($scope, mainFactory) {
 	   }
 		 $scope.$apply();
 	},300)
-	
+
+
 })

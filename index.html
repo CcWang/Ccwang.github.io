@@ -11,6 +11,10 @@
     <link rel="stylesheet" type="text/css" href="bower_components/hover/css/hover.css">
    <script type="text/javascript" src="bower_components/br-fullpage/dist/br-fullpage.min.js"></script>
    <script src="static/app.js"></script>
+   <!-- angular-parallax -->
+   <!-- <script src="bower_components/angular/angular.min.js"></script> -->
+<!--    <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
+    <script src="bower_components/ng-parallax/angular-parallax.min.js"></script> -->
    <!-- google font -->
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="static/main.css">
@@ -41,11 +45,6 @@
                     </a>
                 </li>
                 <li>
-                    <a fullpage-href="skills" class="hvr-float-shadow" style="color: white;">
-                        My Skills
-                    </a>
-                </li>
-                <li>
                     <a fullpage-href="contact" class="hvr-shutter-out-horizontal" style="color: white;">
                         Hire Me!
                     </a>
@@ -54,7 +53,7 @@
         </div>
     </section>
 </section>
-<fullpage class="instant-size" page-class="page">
+<fullpage class="instant-size" page-class="page" scroll-hide>
     <section class="page" id="cw">
         <section class="container">
             <div class="col-sm-12 text-center" id="me">
@@ -73,27 +72,41 @@
     </section>
     <section class="page" id="projects">
         <section class="container">
-            <h1>projects</h1>
-            <p>coming soon</p>
+            <h1>Some of my <strong>Projects</strong></h1>
+            <div class="col-sm-6">
+                <img class="projectImg" src="static/images/foodhunter1.png">
+                <div class="col-sm-3" ng-repeat="img in ['angular','node','mongodb','materialize','aws']" style="display: inline-block;">
+                    <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img class="projectImg" src="static/images/movie.png" >
+                <div class="col-sm-3 " ng-repeat="img in ['rails','ruby','react','mysql','aws','bootsrap']" style="display: inline-block;">
+                <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
+                </div>
+                
+            </div>
         </section>
     </section>
-    <section class="page" id="skills">
-        <section class="container">
-            <h1>skills</h1>
-            <p>coming soon</p>
-        </section>
-    </section>
-    <section class="page" id="about">
+
+    <section class="page" id="about" ng-controller='mainController'>
         <section class="container">
             <h1>About Me</h1>
+            <p>Hi there! I am Chongchong, many call me Cecilia. I am a full-stack web developer pursuing exciting new opportunities, and proud to proclaim that I recently accomplished an immersive 14 week programming bootcamp, Coding Dojo. At Coding Dojo, I earned the highest earning of achievement, a Double Black Belt, which means that I mastered 3 full stacks: LAMP(Linux, Apache, MAMP, PHP), MEAN (MongoDB, Express, Angular, NodeJS) and Ruby on Rails.Before attending Coding Dojo, I worked in accounting. From this, I became very detail-oriented and analytic, and intend to carry these valuable skills into a programming role. I am a quick learner with the ability to thrive in a fast-paced environment, and am willing to do whatever it takes to help my team succeed: front end, back end and everything in between. I am eager to continue learning and join your development team!</p>
+            <img src="static/images/img2.1.jpg"  alt=''/>
         </section>
     </section>
-    <section class="page" id="contact">
+    <section id="contact" class="page">
         <section class="container">
             <h1>contact</h1>
             <p>coming soon</p>
+            <!-- <img src="static/images/img2.1.jpg"  alt=''/> -->
         </section>
     </section>
 </fullpage>
+<footer>
+    
+</footer>
 </body>
 </html>
