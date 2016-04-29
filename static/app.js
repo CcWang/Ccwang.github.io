@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['br.fullpage']);
+var myApp = angular.module('myApp',['br.fullpage','ngAnimate']);
 
 myApp.factory('mainFactory',function () {
 	// body...
@@ -19,6 +19,6 @@ myApp.controller('mainController',function ($scope, mainFactory) {
 	   }
 		 $scope.$apply();
 	},300)
-
+	$scope.foodhunter = false;
 
 })

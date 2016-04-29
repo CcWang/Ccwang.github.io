@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/br-fullpage/dist/br-fullpage.min.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/hover/css/hover.css">
    <script type="text/javascript" src="bower_components/br-fullpage/dist/br-fullpage.min.js"></script>
    <script src="static/app.js"></script>
-   <!-- angular-parallax -->
-   <!-- <script src="bower_components/angular/angular.min.js"></script> -->
-<!--    <script src="bower_components/angular-scroll/angular-scroll.min.js"></script>
-    <script src="bower_components/ng-parallax/angular-parallax.min.js"></script> -->
    <!-- google font -->
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="static/main.css">
@@ -71,10 +68,51 @@
         </section>
     </section>
     <section class="page" id="projects">
-        <section class="container">
+        <section class="container container-a1">
             <h1>Some of my <strong>Projects</strong></h1>
-            <div class="col-sm-6">
-                <img class="projectImg" src="static/images/foodhunter1.png">
+            <!-- <div class="container-a1"> -->
+                <ul class="caption-style-1" style="display: inline-block;">
+                    <li>
+                        <img class="projectImg img-responsive" src="static/images/foodhunter1.png">
+                        <div class="caption">
+                            <div class="blur"></div>
+                                <div class="caption-text">
+                                    <h3><a href="https://github.com/CcWang/foodHunter" target="_blank" class="hvr-wobble-skew">Github</a></h3>
+                                    <h3>Demo</h3>
+                                    <h3><a href="http://52.26.69.49/" target='_blank' class="hvr-wobble-top">Check it out!</a></h3>
+                                    <div class="col-sm-2 col-sm-offset-1" ng-repeat="img in ['angular','node','mongodb','materialize','aws']" style="display: inline-block; padding-top:5px ">
+                                        <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
+                                    </div>
+                                </div>
+                            </div>
+                       
+                    </li>
+                    <li>
+                        <img class="projectImg img-responsive" src="static/images/movie.png" >
+                        <div class="caption">
+                            <div class="blur"></div>
+                                <div class="caption-text">
+                                    <h3><a href="https://github.com/CcWang/Mongoose-MovieWishList-Generator" target="_blank" class="hvr-wobble-skew">Github</a></h3>
+                                    <h3>Demo</h3>
+                                    <h3><a href="http://52.11.63.40/" target='_blank' class="hvr-wobble-top">Check it out!</a></h3>
+                                   <div class="col-sm-2 col-sm-offset-1 " ng-repeat="img in ['rails','ruby','react','postgresql','aws','bootsrap']" style="display: inline-block;">
+                                        <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
+                                    </div>
+                                </div>
+                            </div>
+                       
+                    </li>
+                </ul>
+            <!-- </div> -->
+            <!-- <div class="col-sm-6 caption-style-1">
+                <img class="projectImg" src="static/images/foodhunter1.png" ng-mouseover="foodhunter = !foodhunter"> 
+                <div class="caption">
+                    <div class="blur"></div>
+                    <div class="caption-text">
+                        <h1>Amazing Caption</h1>
+                        <p>Whatever It Is - Always Awesome</p>
+                    </div>
+                </div>
                 <div class="col-sm-3" ng-repeat="img in ['angular','node','mongodb','materialize','aws']" style="display: inline-block;">
                     <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
                     </div>
@@ -86,7 +124,7 @@
                 <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
                 </div>
                 
-            </div>
+            </div> -->
         </section>
     </section>
 

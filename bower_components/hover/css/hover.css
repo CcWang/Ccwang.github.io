@@ -1015,6 +1015,8 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform-origin: 0 100%;
   transform-origin: 0 100%;
+  color: white;
+  font-weight: bold;
 }
 .hvr-wobble-top:hover, .hvr-wobble-top:focus, .hvr-wobble-top:active {
   -webkit-animation-name: hvr-wobble-top;
@@ -1025,6 +1027,10 @@
   animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+  color: red;
+  text-decoration: none;
+   font-weight: bold;
+
 }
 
 /* Wobble Bottom */
@@ -1189,6 +1195,8 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+ font-weight: bold;
 }
 .hvr-wobble-skew:hover, .hvr-wobble-skew:focus, .hvr-wobble-skew:active {
   -webkit-animation-name: hvr-wobble-skew;
@@ -1199,6 +1207,9 @@
   animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
 }
 
 /* Buzz */
