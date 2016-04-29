@@ -132,8 +132,6 @@ body {
 	width: 60%;
 	height: 60%;
 	border-radius: 50%;
-  /*margin:8px 6px;*/
-  padding: 8px;
 }
 
 
@@ -206,11 +204,6 @@ body {
   }
   
 
-
-#github{
-  width: 25px;
-  height: 25px;
-}
 
 
 
