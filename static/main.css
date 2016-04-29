@@ -196,13 +196,18 @@ body {
     height: 350px;
     width: 550px;
     text-align: center;
-    top:100px;
+    top:50px;
   }
 
   #projects .container-a1 .caption-style-1 li{
     margin: 10px;
   }
   
+  .caption-style-1 .caption-text h1{
+    font-style: italic;
+    font-weight: 800;
+
+  }
 
 
 
