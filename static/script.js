@@ -31,7 +31,7 @@ angular.module('myApp', [])
       },300)
 
     $scope.about_1 = "I am a full-stack web developer pursuing exciting new opportunities, and proud to proclaim that I recently accomplished an immersive 14 week programming bootcamp, Coding Dojo. At Coding Dojo, I earned the highest earning of achievement, a Double Black Belt, which means that I mastered 3 full stacks: LAMP(Linux, Apache, MAMP, PHP), MEAN (MongoDB, Express, Angular, NodeJS) and Ruby on Rails."
-;   $scope.about_2 ="Before attending Coding Dojo, I worked in accounting. From this, I became very detail-oriented and analytic, and intend to carry these valuable skills into a programming role. I am a quick learner with the ability to thrive in a fast-paced environment, and am willing to do whatever it takes to help my team succeed: front end, back end and everything in between. I am eager to continue learning and join your development team!";
+// ;   $scope.about_2 ="Before attending Coding Dojo, I worked in accounting. From this, I became very detail-oriented and analytic, and intend to carry these valuable skills into a programming role. I am a quick learner with the ability to thrive in a fast-paced environment, and am willing to do whatever it takes to help my team succeed: front end, back end and everything in between. I am eager to continue learning and join your development team!";
     }
 
   ]);

@@ -45,16 +45,16 @@ body {
 #anchorcw {
 	background-image: url('images/img1.1.jpg');
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 100%;
   height: 1080px;
+  width: 100%;
 }
 
 #me {
 	margin-top:15%;
 	color: white;
   position: absolute;
-  /*z-index: 8;*/
-  /*position: fixed;*/
+
 }
 
 #me h1 {
@@ -62,7 +62,7 @@ body {
 	font-weight: 600;
 	padding-top: 10px;
 	margin-bottom: 20px;
-  z-index: 4;
+
 }
 
 #me #intro {
@@ -123,10 +123,7 @@ body {
 
 #anchorab{
   height: auto;
-  /*margin-bottom: 35px;*/
-  /*padding: 10px;*/
-  border-spacing: 10px;
-
+  border-spacing: 50px;
 }
 
 #anchorab h2{
@@ -142,9 +139,12 @@ body {
 }
 
 #about {
-  /*border-top: 3px solid #2098d1;*/
-  /*border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;*/
-  /*border:solid 5px #41403E;*/
+ border-top: 2px dashed #046ca3;
+  border-bottom: 1px dashed #046ca3;
+  box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
+  margin-bottom: 1px;
+  padding: 30px;
+  margin-bottom:20px; 
 }
 /***************************************projects section******************************************/
 #anchorpr .projectImg{
@@ -241,9 +241,10 @@ body {
 /*contacot page*/
 
 #contact{
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    border:solid 5px #41403E;
-    border-spacing: 10px;
+  border-top: 2px dashed #046ca3;
+   border-bottom: 2px dashed #046ca3;
+  box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
+  margin-bottom: 1px;
 }
 
 
