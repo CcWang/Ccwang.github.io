@@ -1,4 +1,7 @@
 var myApp = angular.module('myApp',['br.fullpage','ngAnimate']);
+myApp.run(['$anchorScroll',function($anchorScroll){
+	$anchorScroll.yOffset=50;
+}])
 
 myApp.factory('mainFactory',function () {
 	// body...
@@ -7,7 +10,7 @@ myApp.factory('mainFactory',function () {
 	return factory;
 })
 
-myApp.controller('mainController',function ($scope, mainFactory) {
+myApp.controller('mainController',function ($scope,$anchorScroll,$location) {
 	// body...
 	var intro = "Full Stack Web Developer"
 	$scope.intro ='';
@@ -19,6 +22,9 @@ myApp.controller('mainController',function ($scope, mainFactory) {
 	   }
 		 $scope.$apply();
 	},300)
-	$scope.foodhunter = false;
-
+	
+	
 })
+
+
+

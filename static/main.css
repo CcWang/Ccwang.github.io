@@ -1,6 +1,7 @@
 
 body {
 	font-family: 'Raleway';
+  background-color: #ebebeb;
 }
 .page{
 		padding-top: 70px;
@@ -9,6 +10,24 @@ body {
 	.page:nth-child(2n){
 		background-color: #f5f5f5;
 	}
+
+
+/*each section setting*/
+
+
+.fixed-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 50px;
+  position: fixed;
+  z-index: 11;
+  top: 0; left: 0; right: 0;
+}
+
+.fixed-header > a {
+  display: inline-block;
+  margin: 5px 15px;
+    font-size: 25px;
+}
 /*************************** Nav Bar *********************************/
 .navbar-right li a, .navbar-brand {
 	font-weight: 800;
@@ -17,27 +36,25 @@ body {
 }
 
 .navbar-brand {
-
+  color: white;
 	font-size: 25px;
 }
 
-.navbar-fixed-top {
-	background: black;
-	color: black;
-	-webkit-box-shadow: 0 8px 6px -6px;
-    -moz-box-shadow: 0 8px 6px -6px; 
-    box-shadow: 0 8px 6px -6px;
-}
+
 /*************************** CW section *********************************/
-#cw {
+#anchorcw {
 	background-image: url('images/img1.1.jpg');
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: contain;
+  height: 1080px;
 }
 
 #me {
 	margin-top:15%;
 	color: white;
+  position: absolute;
+  /*z-index: 8;*/
+  /*position: fixed;*/
 }
 
 #me h1 {
@@ -45,6 +62,7 @@ body {
 	font-weight: 600;
 	padding-top: 10px;
 	margin-bottom: 20px;
+  z-index: 4;
 }
 
 #me #intro {
@@ -100,37 +118,48 @@ body {
 	margin-top:50px;
 	font-weight: bold;
 }
- 
+
 /********************************* about section ********************************/
 
-#about img {
-	position: relative;
-    z-index: 0;
-    margin: -20% 0;
-    max-width: 100%;
+#anchorab{
+  height: auto;
+  /*margin-bottom: 35px;*/
+  /*padding: 10px;*/
+  border-spacing: 10px;
+
 }
 
-#about p {
-      position: relative;
-      background: #ebebeb;
-      z-index: 1;
-      padding: 100px 20px;
-    
+#anchorab h2{
+  font-style: italic;
+  margin-bottom: 1.5em;
+  color: #2098d1;
+}
+
+#anchorab p{
+  font-weight: bold;
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+}
+
+#about {
+  /*border-top: 3px solid #2098d1;*/
+  /*border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;*/
+  /*border:solid 5px #41403E;*/
 }
 /***************************************projects section******************************************/
-#projects .projectImg{
+#anchorpr .projectImg{
   width: 550px;
   height: 350px;
   border-radius: 20px;
   border:2px solid #2098d1;
   padding: 5px;
 }
-#projects .projectImg:hover{
+#anchorpr .projectImg:hover{
    box-shadow: 0 0 5px #fff;
 }
 .skillImg {
-	width: 60%;
-	height: 60%;
+	width: 35px;
+	height: 35px;
 	border-radius: 50%;
 }
 
@@ -199,7 +228,7 @@ body {
     top:50px;
   }
 
-  #projects .container-a1 .caption-style-1 li{
+  #anchorpr .container-a1 .caption-style-1 li{
     margin: 10px;
   }
   
@@ -209,9 +238,13 @@ body {
 
   }
 
+/*contacot page*/
 
-
-
+#contact{
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border:solid 5px #41403E;
+    border-spacing: 10px;
+}
 
 
 
