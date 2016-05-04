@@ -54,7 +54,7 @@ h1{
 }
 
 #me {
-	margin-top:25vh;
+	margin-top:30vmax;
 	color: white;
   /*position: absolute;*/
 
@@ -68,15 +68,15 @@ h1{
 
 }
 
-#me #intro {
+/* #me #intro {
 	border-right: 2px solid #2098d1;
-	/*display: inline;*/
+	display: inline;
 	white-space: pre;
-	/*padding-right: 2px;*/
-}
+	padding-right: 2px;
+}*/
 /*blink border*/
 
-@keyframes blink { 
+/*@keyframes blink { 
 0% {
             border-color: rgba(32,152,209,0.5);
         }
@@ -90,12 +90,12 @@ h1{
         } 
 }
 #me #intro{ /*or other element you want*/
-    animation-name: blink ;
+/*    animation-name: blink ;
     animation-duration: 0.5s ;
     animation-iteration-count: infinite ;
     animation-direction: normal; 
     animation-timing-function: ease;
-}
+}*/
 
 /*end of blink border*/
 
@@ -117,7 +117,7 @@ h1{
 
 #down_arrow {
 	color: #2098d1;
-	font-size: 90px;
+	font-size: 9vmin;
 	margin-top:50px;
 	font-weight: bold;
 }
