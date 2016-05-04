@@ -46,19 +46,19 @@ body {
 	background-image: url('images/img1.1.jpg');
 	background-repeat: no-repeat;
 	background-size: 100%;
-  height: 1080px;
+  height: 880px;
   width: 100%;
 }
 
 #me {
 	margin-top:15%;
 	color: white;
-  position: absolute;
+  /*position: absolute;*/
 
 }
 
 #me h1 {
-	font-size: 60px;
+	font-size:  5vmax;
 	font-weight: 600;
 	padding-top: 10px;
 	margin-bottom: 20px;
@@ -101,7 +101,7 @@ body {
 	color: white;
 	padding: 5px 10px;
 	background: transparent;
-	font-size: 30px;
+	font-size:  2vmax;
 	font-weight: 500;
 	margin-top: 50px;
 	border: 3px solid white;
@@ -123,12 +123,12 @@ body {
 
 #anchorab{
   height: auto;
-  border-spacing: 50px;
+  margin: 50px;
 }
 
-#anchorab h2{
+h2{
   font-style: italic;
-  margin-bottom: 1.5em;
+  /*margin-bottom: 1.5em;*/
   color: #2098d1;
 }
 
@@ -144,7 +144,7 @@ body {
   box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
   /*margin-bottom: 1px;*/
   padding: 30px;
-  margin-bottom:20px; 
+/*  margin-bottom:20px;*/ 
 }
 /***************************************projects section******************************************/
 #anchorpr .projectImg{
@@ -162,7 +162,9 @@ body {
 	height: 35px;
 	border-radius: 50%;
 }
-
+#anchorpr {
+  margin-top: 50px;
+}
 
 
 /**********************hover css images**********************/
@@ -244,19 +246,33 @@ body {
   border-top: 2px dashed #046ca3;
    border-bottom: 2px dashed #046ca3;
   box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
-  /*margin-bottom: 1px;*/
+  margin-bottom: 1px;
    padding: 30px;
-  margin-bottom:20px; 
+  /*margin-bottom:20px; */
 }
 
 #anchorco {
-
   height: auto;
   border-spacing: 50px;
 }
 
+#contact #me_pic{
+  margin-top: 50px;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  margin-bottom: 10px;
+}
 
-
+#contact_p {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.contact_icon {
+  width: 7%;
+  height: 7%;
+  padding: 5px;
+}
 
 
 
