@@ -4,13 +4,7 @@ body {
   background-color: #ebebeb;
   margin: 0;
 }
-.page{
-		padding-top: 70px;
-	}
 
-	.page:nth-child(2n){
-		background-color: #f5f5f5;
-	}
 
 h1{
   text-align: center;
