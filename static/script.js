@@ -6,6 +6,7 @@ angular.module('myApp', [])
   }])
   .controller('mainController', ['$anchorScroll', '$location', '$scope',
     function ($anchorScroll, $location, $scope) {
+      // $scope.preLoad();
       $scope.gotoAnchor = function(x) {
         var newHash = 'anchor' + x;
         if ($location.hash() !== newHash) {
