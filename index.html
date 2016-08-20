@@ -68,9 +68,9 @@
 <div class="container-fluid anchor" id="anchorpr">
   <div class="container container-a1">
   <div class="col-sm-12">
-    <h2>Some of my <strong>Projects</strong></h2>
-    <h4><l>All my projects are developed from scratch, each website took under just one week to complete! Some of them only took under 2 days!</l></h4>
-    <h4><i>**This portfolio is built only by using HTML5,CSS3 and <strong>AngularJS</strong></i></h4>
+    <h1 class="text-center" id='project_heading'>A lovely selection of projects</h1>
+    <!-- <h4><l>All my projects are developed from scratch, each website took under just one week to complete! Some of them only took under 2 days!</l></h4>
+    <h4><i>**This portfolio is built only by using HTML5,CSS3 and <strong>AngularJS</strong></i></h4> -->
   </div>
     <ul class="caption-style-1" style="display: inline-block;">
         <li>
@@ -155,18 +155,20 @@
   </div>
 </div>
 
-<div class="container-fluid anchor" id="anchorab">
-  <div class="col-sm-10 col-sm-offset-1" id="about">
+<div id="anchorab">
 
-    <h2>Hi there! I am Chongchong, many call me Cecilia.</h2>
-    <img src="static/images/img_me.jpg"  class="col-sm-6 img-thumbnail"/>
-    <div class="col-sm-4 col-sm-offset-1">
+    <img src="static/images/img_me.jpg"  class="img-responsive col-sm-6"/>
+
+  <div  id='right' class="col-sm-6">
+      <h1 id="about_heading">Hi there! <br>I am Chongchong.</h1>
       <p ng-bind='about_1' ></p>
       <p ng-bind='about_2'></p>
       <p ng-bind='about_3'></p>
-    </div>
+      <!-- <p ng-bind='about_4'></p> -->
+      <!-- <p ng-bind='about_5'></p> -->
   </div>
-  <div class="col-sm-10 col-sm-offset-1 skills">
+
+  <!-- <div class="col-sm-10 col-sm-offset-1 skills">
     <h2>Technical Toolbox</h2>
 
     <h3>Language: <span><li>Javascript</li>  <li>PHP</li>  <li>Python</li> <li>Ruby</li>  <li>SQL</li></span></h3><br>
@@ -176,39 +178,40 @@
 
     <h3>Databases: <span> <li>MySQL</li> <li>MongoDB</li></span>   Servers: <span><li>NodeJS</li> <li>AWS</li></span>   Version Control: <span> <li>Git</li></span></h3><br>
 
-
-
-
-    <!-- <img src="static/images/programming_logos_html5.png" alt="" />
-    <img src="static/images/programming_logos_css.png" alt="" />
-    <img src="static/images/programming_logos_javascript.png" alt="" />
-    <img src="static/images/programming_logos_python.png" alt="" />
-    <img src="static/images/programming_logos_ruby.png" alt="" />
-    <img src="static/images/programming_logos_php.png" alt=""/> -->
-  </div>
-  <!-- <div class="col-sm-10 col-sm-offset-1 skills">
-    <img src="static/images/programming_logos_jquery.png" alt="" />
-    <img src="static/images/angular.png" alt="" />
-    <img src="static/images/mongodb.png" alt="" />
-    <img src="static/images/mysql.png" alt="" />
-    <img src="static/images/node.png" alt="" />
-    <img src="static/images/github.png" alt="" />
-    <img src="static/images/aws.png" alt="" />
-    <img src="static/images/rails.png" alt=""/>
   </div> -->
+
 </div>
 
 <div class="container-fluid anchor" id="anchorco">
-  <div class="col-sm-10 col-sm-offset-1" id="contact">
-    <h2>You can find me or my code on ...</h2>
-    <div class="col-sm-8 col-sm-offset-4">
-      <img src="static/images/contact.jpg" class="img-responsive" id="me_pic">
-    </div>
-    <div class="text-center">
-      <p id="contact_p"> <a href="https://www.linkedin.com/in/chongchongwang" target="_blank"><img src="static/images/linkedin_icon.png" class="contact_icon" /> LinkedIn</a> | <a href="https://github.com/CcWang/" target="_blank"><img src="static/images/github_icon.png" class="contact_icon" />GitHub</a> | <a href="mailto:ccwang.sv@gmail.com?Subject=Hello%20Chongchong" target="_top"><img src="static/images/email.png" class="contact_icon" />Email Me </a></p>
-    </div>
-    <a href="" ng-click='gotoAnchor("cw")' >Back To Top</a>
+  <div class="col-sm-4 text-left col-sm-offset-2 contact_box">
+    <h1>Get in touch</h1>
+    <p>
+      Wish to join your talented team! Or how about just a friendly chat? Give me an email and we can grab a lovely coffee.
+    </p>
+    <h3>Email:</h3>
+    <p>
+      <a href="mailto:ccwang.sv@gmail.com?Subject=Hello%20Chongchong" target="_top">ccwang.sv@gmail.com</a>
+    </p>
   </div>
+  <div class="col-sm-4 text-left col-sm-offset-1 contact_box">
+    <h1>Networks</h1>
+    <p>
+      Give me a follow on <a href="https://www.linkedin.com/in/chongchongwang">LinkedIn</a>
+    </p>
+    <p>
+      Find my code on <a href="https://github.com/CcWang">GitHub</a>
+    </p>
+    <p>
+      Find my resume on
+      <a href="static/resume.pdf" target="_blank">Resume </a>
+    </p>
+  </div>
+  <a href="" ng-click='gotoAnchor("cw")' id='back_to_top'>Back To Top</a>
+  <footer class="col-sm-6 col-sm-offset-3 text-center">
+    Copyright © 2016 Chongchong Wang.
+    <br>
+    <span>Full Stack Development | Javascript | Python | PHP | SQL</span>
+  </footer>
 </div>
 
 </body>
