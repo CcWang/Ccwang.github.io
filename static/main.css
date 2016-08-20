@@ -11,7 +11,7 @@ body {
 
 .fixed-header {
   background-color: rgba(0, 0, 0, 0.2);
-  height: 50px;
+  height: 1%;
   position: fixed;
   z-index: 11;
   top: 0; left: 0; right: 0;
@@ -19,19 +19,19 @@ body {
 
 .fixed-header > a {
   display: inline-block;
-  margin: 5px 15px;
-    font-size: 25px;
+  margin: 0.2em 1em;
+  font-size: 1.2em;
 }
 /*************************** Nav Bar *********************************/
 .navbar-right li a, .navbar-brand {
 	font-weight: 800;
 	font-style: italic;
-	font-size: 20px;
+	font-size: 1.8em;
 }
 
 .navbar-brand {
   color: white;
-	font-size: 25px;
+	font-size: 2.2em;
 }
 
 
@@ -117,7 +117,7 @@ body {
 /********************************* about section ********************************/
 
 #anchorab{
-	height: 100%;
+	height: 80%;
 	width: 100%;
 	overflow: hidden;
 	background-color: #f5f4f4;
@@ -126,9 +126,63 @@ body {
 }
 #anchorab img {
 	margin-left: -10px;
-	height: 100%;
-	/*min-width: 495px;*/
+	/*height: 80%;*/
+	/*min-width: 500px;*/
 }
+@media screen and (max-width: 850px) and (min-width:780px) {
+	#anchorab img{
+		width: 450px;
+		height: 100%;
+		position: relative;
+	}
+	#anchorab #right {
+		width: 40%;
+		position: relative;
+	}
+	#anchorab #right p{
+		font-size: 1.2em;
+	}
+	#about_heading {
+		font-size: 1.4em;
+	}
+}
+@media screen and (max-width: 781px)  {
+	#anchorab img{
+		width: 80%;
+		height: 65%;
+		position: relative;
+		border-radius: 50%;
+		text-align: center;
+		margin: 10px 10%;
+	}
+	#anchorab img, #anchorab #right{
+		display: block;
+	}
+	#anchorab #right {
+		width: 100%;
+		position: relative;
+	}
+	.navbar-right li a, .navbar-brand {
+		font-size: 1.2em;
+	}
+
+	.navbar-brand {
+		color: white;
+		font-size: 1.5em;
+	}
+
+}
+@@media screen and (max-width:640px) {
+	.navbar-right li a, .navbar-brand {
+		font-size: 1em;
+	}
+
+	.navbar-brand {
+		color: white;
+		font-size: 1.2em;
+	}
+}
+
 /*#anchorab{
 	width: 100%;
 	height: 65%;
