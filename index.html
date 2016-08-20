@@ -15,6 +15,7 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
   <!-- angular css  -->
   <script src="static/script.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="static/main.css">
    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -29,7 +30,14 @@
     ga('send', 'pageview');
 
   </script>
+  <script>
 
+  // $(window).resize(function(){
+  //   if($(window).width()<641){
+  //     $('.fixed-header').removeClass('fixed-header');
+  //    }
+  // });
+  </script>
 </head>
 <body ng-app="myApp" ng-controller = 'mainController'>
 <div class="fixed-header">

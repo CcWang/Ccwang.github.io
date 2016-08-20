@@ -1,6 +1,6 @@
 
 body {
-	font-family: 'Raleway';
+	font-family:'Raleway', sans-serif;
   /*background-color: #ebebeb;*/
   margin: 0;
 	font-size: 100%;
@@ -25,7 +25,6 @@ body {
 /*************************** Nav Bar *********************************/
 .navbar-right li a, .navbar-brand {
 	font-weight: 800;
-	font-style: italic;
 	font-size: 1.8em;
 }
 
@@ -53,7 +52,7 @@ body {
 
 #me h1 {
 	font-size:  7vmin;
-	font-weight: 600;
+	font-weight: bold;
 	padding-top: 10px;
 	margin-bottom: 20px;
 	text-align: center;
@@ -172,7 +171,7 @@ body {
 	}
 
 }
-@@media screen and (max-width:640px) {
+@media screen and (max-width:640px) {
 	.navbar-right li a, .navbar-brand {
 		font-size: 1em;
 	}
@@ -180,6 +179,9 @@ body {
 	.navbar-brand {
 		color: white;
 		font-size: 1.2em;
+	}
+	#me {
+		margin-top: 200px;
 	}
 }
 
