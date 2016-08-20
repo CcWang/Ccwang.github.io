@@ -144,6 +144,7 @@ body {
 	#about_heading {
 		font-size: 1.4em;
 	}
+
 }
 @media screen and (max-width: 781px)  {
 	#anchorab img{
@@ -184,16 +185,6 @@ body {
 		margin-top: 200px;
 	}
 }
-
-/*#anchorab{
-	width: 100%;
-	height: 65%;
-	overflow: hidden;
-	background: #f5f4f4;
-	margin-top: 6em;
-}*/
-
-
 h2{
   font-style: italic;
   /*margin-bottom: 1.5em;*/
@@ -355,8 +346,8 @@ h2{
 	color: #0077be;
 	text-decoration: none;
 }
-.contact_box a:hover{
-	font-size: 1.8em;
+.contact_box .hover_a:hover{
+	font-size: 1.3em;
 }
 #back_to_top{
 	position: fixed;
@@ -365,5 +356,6 @@ h2{
 	color: gray;
 }
 footer {
+	margin-top: 20px;
 	color: gray;
 }
