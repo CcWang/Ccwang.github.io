@@ -17,7 +17,7 @@
   <script src="static/script.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="static/main.css">
-    <link rel="stylesheet" type="text/css" href="static/loading.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/loading.css"> -->
    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
    <!-- tracking website -->
@@ -39,20 +39,14 @@
     $(window).on('load',function(){
       this.setTimeout(function(){
         $('.onload').removeClass('onload');
-        $('#loading').addClass('onload');
+        $('#loading').hide();
       },0)
     })
   </script>
 </head>
 <body ng-app="myApp" ng-controller = 'mainController' >
   <div id='loading'>
-     <div class="ball"></div>
-     <div class="ball"></div>
-     <div class="ball"></div>
-     <div class="ball"></div>
-     <div class="ball"></div>
-     <div class="ball"></div>
-    <div class="ball"></div>
+     <img src="static/images/loader.gif" alt="" id="loading-image"/>
   </div>
 <div class="fixed-header onload">
 
