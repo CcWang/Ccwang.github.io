@@ -17,6 +17,7 @@
   <script src="static/script.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="static/main.css">
+    <link rel="stylesheet" type="text/css" href="static/loading.css">
    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
    <!-- tracking website -->
@@ -32,15 +33,28 @@
   </script>
   <script>
 
-  // $(window).resize(function(){
-  //   if($(window).width()<641){
-  //     $('.fixed-header').removeClass('fixed-header');
-  //    }
+  // $(window).scroll(function(){
+  //   console.log(this.location)
   // });
+    $(window).on('load',function(){
+      this.setTimeout(function(){
+        $('.onload').removeClass('onload');
+        $('#loading').addClass('onload');
+      },0)
+    })
   </script>
 </head>
-<body ng-app="myApp" ng-controller = 'mainController'>
-<div class="fixed-header">
+<body ng-app="myApp" ng-controller = 'mainController' >
+  <div id='loading'>
+     <div class="ball"></div>
+     <div class="ball"></div>
+     <div class="ball"></div>
+     <div class="ball"></div>
+     <div class="ball"></div>
+     <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+<div class="fixed-header onload">
 
 
   <nav class="navbar navbar-inverse">
@@ -210,7 +224,7 @@
       Find my code on <a href="https://github.com/CcWang" class="hover_a">GitHub</a>
     </p>
     <p>
-      Find my 
+      Find my
       <a href="static/resume.pdf" target="_blank" class="hover_a">Resume </a>
     </p>
   </div>

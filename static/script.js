@@ -32,7 +32,7 @@ angular.module('myApp', [])
           i++;
         }
         $scope.$apply();
-      },150)
+      },90)
     $scope.about_1 ='</> A full-stack web developer based in Silican Valley, pursuing exciting new opportunities.'
     $scope.about_2= '</> Passionate on building a product that has impact on people’s life. '
     $scope.about_3="</> Looking to join a great company and talented team over cash."

@@ -1,12 +1,16 @@
 
 body {
 	font-family:'Raleway', sans-serif;
-  /*background-color: #ebebeb;*/
+  background-color: #ebebeb;
   margin: 0;
 	font-size: 100%;
 }
 
 /*each section setting*/
+.onload{
+	display: none;
+	background-color: #0E1013;
+}
 
 
 .fixed-header {
