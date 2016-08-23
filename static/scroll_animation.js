@@ -9,16 +9,17 @@ $(document).ready(function(){
   $(window).scroll(function(){
     // console.log(wScroll
 
-    $('.project_box').each(function(){
-      var wording=$(this).offset().top;
-      var topOfWindow = $(window).scrollTop();
-      if (wording < topOfWindow+500){
-        // $(this).fadeIn();
-        $(this).show('slow');
-      }else{
-        $(this).hide();
-      }
-    })
+    // $('.project_box').each(function(){
+    //   var wording=$(this).offset().top;
+    //   var topOfWindow = $(window).scrollTop();
+    //   if (wording < topOfWindow+500){
+    //     // $(this).fadeIn();
+    //     $(this).show('slow');
+    //   }else{
+    //     $(this).hide();
+    //   }
+    // })
+
     $('.projectImg').each(function(){
       var imagePos = $(this).offset().top;
 

@@ -9,6 +9,10 @@ angular.module('myApp', [])
       // $scope.preLoad();
       $scope.gotoAnchor = function(x) {
         var newHash = 'anchor' + x;
+        // if (x=='co'){
+        //   console.log(document.body);
+        //   window.scrollTo(0,-10);
+        // }
         if ($location.hash() !== newHash) {
           // set the $location.hash to `newHash` and
           // $anchorScroll will automatically scroll to it
