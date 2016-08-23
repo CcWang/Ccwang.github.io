@@ -3,15 +3,11 @@ $(document).ready(function(){
   $(window).load(function(){
     $('.onload').addClass('onload');
     console.log('loaidng')
-    // this.setTimeout(function(){
-    //   $('.onload').removeClass('onload');
-    //   $('#loading').hide();
-    // },600);
   },function(){
     $('.onload').removeClass('onload');
     $('#loading').hide();
     console.log('finish loading')
-  });
+  }.bind(this));
   $(window).bind('scroll', function() {
       if($(window).scrollTop() >= $('footer').offset().top + $('footer').outerHeight() - window.innerHeight) {
           // alert('end reached');
