@@ -1,145 +1,194 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title>Chongchong Wang | Full Stack Web Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="bower_components/br-fullpage/dist/br-fullpage.min.css"/>
-    <link rel="stylesheet" type="text/css" href="bower_components/hover/css/hover.css">
-   <script type="text/javascript" src="bower_components/br-fullpage/dist/br-fullpage.min.js"></script>
-   <script src="static/app.js"></script>
-   <!-- google font -->
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,800italic,500,500italic,600,600italic,700,800,700italic,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="static/main.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
-<body ng-controller='mainController'>
-<section class="nav navbar navbar-default navbar-fixed-top" ng-cloak>
-    <section class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand hvr-float-shadow" href="#" fullpage-href='cw' style="color: white;">Chongchong Wang</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a fullpage-href="about" class="hvr-float-shadow" style="color: white;">
-                        About Me
-                    </a>
-                </li>
-                <li>
-                    <a fullpage-href="projects" class="hvr-float-shadow" style="color: white;">
-                        My Projects
-                    </a>
-                </li>
-                <li>
-                    <a fullpage-href="contact" class="hvr-shutter-out-horizontal" style="color: white;">
-                        Hire Me!
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-</section>
-<fullpage class="instant-size" page-class="page" scroll-hide>
-    <section class="page" id="cw">
-        <section class="container">
-            <div class="col-sm-12 text-center" id="me">
-                <h1>Hi, I'm <strong>Chongchong Wang</strong></h1>
-                <h1 ng-model='intro' id="intro" >{{intro}}</h1>
-                <div ng-if='intro.length == 24'>
-                    <button fullpage-href="contact" id="hire">
-                        AVAILABLE FOR HIRE
-                    </button>
-                </div>
-                <div ng-if='intro.length == 24'>
-                    <i class="fa fa-angle-down hvr-icon-hang" fullpage-href='about' id="down_arrow"></i>
-                </div>
-            </div>
-        </section>
-    </section>
-    <section class="page" id="projects">
-        <section class="container container-a1">
-            <h1>Some of my <strong>Projects</strong></h1>
-                <ul class="caption-style-1" style="display: inline-block;">
-                    <li>
-                        <img class="projectImg img-responsive" src="static/images/foodhunter1.png">
-                        <div class="caption">
-                            <div class="blur"></div>
-                                <div class="caption-text">
-                                    <h1>Food Hunter</h1>
-                                    <h3><a href="https://github.com/CcWang/foodHunter" target="_blank" class="hvr-wobble-skew">Github</a></h3>
-                                    <h3>Demo</h3>
-                                    <h3><a href="http://52.26.69.49/" target='_blank' class="hvr-wobble-top">Check it out!</a></h3>
-                                    <div class="col-sm-2 col-sm-offset-1" ng-repeat="img in ['angular','node','mongodb','materialize','aws']" style="display: inline-block; padding-top:5px ">
-                                        <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
-                                    </div>
-                                </div>
-                            </div>
-                       
-                    </li>
-                    <li>
-                        <img class="projectImg img-responsive" src="static/images/movie.png" >
-                        <div class="caption">
-                            <div class="blur"></div>
-                                <div class="caption-text">
-                                    <h1>Movie Wish List</h1>
-                                    <h3><a href="https://github.com/CcWang/Mongoose-MovieWishList-Generator" target="_blank" class="hvr-wobble-skew">Github</a></h3>
-                                    <h3>Demo</h3>
-                                    <h3><a href="http://52.11.63.40/" target='_blank' class="hvr-wobble-top">Check it out!</a></h3>
-                                   <div class="col-sm-2 col-sm-offset-1 " ng-repeat="img in ['rails','ruby','react','postgresql','aws','bootsrap']" style="display: inline-block;">
-                                        <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
-                                    </div>
-                                </div>
-                            </div>
-                       
-                    </li>
-                    <li>
-                        <img class="projectImg img-responsive" src="static/images/mission.png" >
-                        <div class="caption">
-                            <div class="blur"></div>
-                                <div class="caption-text">
-                                    <h1>Mission Checker</h1>
-                                    <h3><a href="https://github.com/CcWang/RoR-Missions" target="_blank" class="hvr-wobble-skew">Github</a></h3>
-                                    <h3>Demo</h3>
-                                    <h3><a href="http://52.39.12.139/" target='_blank' class="hvr-wobble-top">Check it out!</a></h3>
-                                   <div class="col-sm-2 col-sm-offset-1 " ng-repeat="img in ['rails','ruby','postgresql','aws','bootsrap']" style="display: inline-block;">
-                                        <img src="static/images/{{img}}.png" class="skillImg img-responsive img-circle">
-                                    </div>
-                                </div>
-                            </div>
-                       
-                    </li>
-                </ul>
-        </section>
-    </section>
+  <meta charset='UTF-8'>
+  <title>Chongchong Wang | Full Stack Web Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular -->
+  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 
-    <section class="page" id="about" ng-controller='mainController'>
-        <section class="container">
-            <h1>About Me</h1>
-            <p>Hi there! I am Chongchong, many call me Cecilia. I am a full-stack web developer pursuing exciting new opportunities, and proud to proclaim that I recently accomplished an immersive 14 week programming bootcamp, Coding Dojo. At Coding Dojo, I earned the highest earning of achievement, a Double Black Belt, which means that I mastered 3 full stacks: LAMP(Linux, Apache, MAMP, PHP), MEAN (MongoDB, Express, Angular, NodeJS) and Ruby on Rails.Before attending Coding Dojo, I worked in accounting. From this, I became very detail-oriented and analytic, and intend to carry these valuable skills into a programming role. I am a quick learner with the ability to thrive in a fast-paced environment, and am willing to do whatever it takes to help my team succeed: front end, back end and everything in between. I am eager to continue learning and join your development team!</p>
-            <img src="static/images/img2.1.jpg"  alt=''/>
-        </section>
-    </section>
-    <section id="contact" class="page">
-        <section class="container">
-            <h1>contact</h1>
-            <p>coming soon</p>
-            <!-- <img src="static/images/img2.1.jpg"  alt=''/> -->
-        </section>
-    </section>
-</fullpage>
-<footer>
-    
-</footer>
+  <!-- hover css -->
+  <link rel="stylesheet" type="text/css" href="bower_components/hover/css/hover.css">
+    <!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,700i,900,900i|Raleway:400,700,700i,800,800i,900,900i|Source+Sans+Pro:400,700,700i,900,900i" rel="stylesheet">
+
+  <!-- angular css  -->
+  <script src="static/script.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/main.css">
+  <script src="static/scroll_animation.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/project.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/loading.css"> -->
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+   <!-- tracking website -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77737107-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+<body ng-app="myApp" ng-controller = 'mainController' >
+
+<div class="fixed-header">
+
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <li class="active"><a class="navbar-brand hvr-float-shadow" href="" style="color:white;" ng-click='gotoAnchor("cw")'>Chongchong Wang</a></li>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li class="active"><a href="" ng-click='gotoAnchor("cw")'>Chongchong Wang</a></li> -->
+        <li><a href="" ng-click='gotoAnchor("ab")'  class="hvr-float-shadow" style="color:white;">About</a></li>
+        <li><a href="" ng-click='gotoAnchor("pr")'  class="hvr-float-shadow" style="color:white;">Projects</a></li>
+        <li><a href="" ng-click='gotoAnchor("co")'  class="hvr-float-shadow"  style="color:white;">Hire Me</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container-fluid anchor" id="anchorcw">
+  <div id="me" >
+    <h1 >Hi, I'm <strong>Chongchong Wang</strong></h1>
+    <h1 id="intro">{{intro}}</h1>
+    <div ng-if='intro.length == 24' class="text-center">
+        <button ng-click='gotoAnchor("co")'id="hire">
+            AVAILABLE FOR HIRE
+        </button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid anchor" id="anchorpr">
+  <div class="container container-a1">
+  <div class="col-sm-12">
+    <h1 class="text-center" id='project_heading'>A lovely selection of projects</h1>
+  </div>
+<!-- project one -->
+    <div class="col-sm-12">
+    <div class="col-sm-7">
+      <img class="projectImg img-responsive" src="static/images/foodhunter.jpg">
+
+    </div>
+    <div class="col-sm-5 project_box">
+      <h1>Food Hunter</h1>
+      <h3>Code:<a href="https://github.com/CcWang/foodHunter" target="_blank"> Github</a></h3>
+      <h3>Demo:<a href="https://vimeo.com/165538788" target="_blank" > Play <span class="glyphicon glyphicon-play"></span></a></h3>
+      <h3>App:<a href="http://52.26.69.49/" target='_blank'> Check it out!</a></h3>
+    </div>
+  </div>
+  <!-- project two -->
+    <div class="col-sm-12 projects">
+      <div class="col-sm-5 project_box">
+        <h1>Mission Checker</h1>
+        <h3>Code:<a href="https://github.com/CcWang/RoR-Missions" target="_blank"> Github</a></h3>
+        <h3>App:<a href="http://52.39.12.139/" target='_blank'> Check it out!</a></h3>
+      </div>
+      <div class="col-sm-7">
+        <img class="projectImg img-responsive" src="static/images/mission.jpg">
+
+      </div>
+    </div>
+  <!-- project three -->
+    <div class="col-sm-12 projects">
+      <div class="col-sm-7">
+        <img class="projectImg img-responsive" src="static/images/uber.jpg">
+
+      </div>
+      <div class="col-sm-5 project_box">
+        <h1>Uber Price</h1>
+        <h3>Code:<a href="https://github.com/CcWang/PHP_Uber_Future_Price_Estimate"  target="_blank"> Github</a></h3>
+        <h3>Demo:<a href="https://vimeo.com/165649402" target="_blank" > Play <span class="glyphicon glyphicon-play"></span></a></h3>
+
+      </div>
+    </div>
+<!-- projects four -->
+    <div class="col-sm-12 projects">
+      <div class="col-sm-5 project_box">
+        <h1>Movie Wish List</h1>
+        <h3>Code:<a href="https://github.com/CcWang/Mongoose-MovieWishList-Generator"  target="_blank"> Github</a></h3>
+        <h3>Demo:<a href="https://vimeo.com/165535705" target="_blank" > Play <span class="glyphicon glyphicon-play"></span></a></h3>
+        <h3>App:<a href="http://52.11.63.40/" target='_blank'> Check it out!</a></h3>
+      </div>
+      <div class="col-sm-7">
+        <img class="projectImg img-responsive" src="static/images/movies.jpg">
+
+      </div>
+    </div>
+<!-- project five -->
+    <div class="col-sm-12 projects">
+      <div class="col-sm-7">
+        <img class="projectImg img-responsive" src="static/images/athack.jpg">
+
+      </div>
+      <div class="col-sm-5 project_box">
+        <h1>Warning Signs</h1>
+        <h3>Code:<a href="https://github.com/CcWang/athack2.0" target="_blank"> Github</a></h3>
+        <h3>Demo:<a href="https://vimeo.com/165534926" target="_blank" > Play <span class="glyphicon glyphicon-play"></span></a></h3>
+
+      </div>
+    </div>
+
+    <!-- end of projects -->
+  </div>
+</div>
+
+<div id="anchorab" class="container-fluid anchor">
+
+    <img src="static/images/img_me.jpg"  class="img-responsive col-sm-6"/>
+
+  <div  id='right' class="col-sm-6">
+      <h1 id="about_heading">Hi there! <br>I am Chongchong.</h1>
+      <p ng-bind='about_1' ></p>
+      <p ng-bind='about_2'></p>
+      <p ng-bind='about_3'></p>
+      <p ng-bind='about_4'></p>
+      <p ng-bind='about_5'></p>
+      <p ng-bind='about_6'></p>
+  </div>
+
+</div>
+
+<div class="container-fluid anchor" id="anchorco">
+  <div class="col-sm-4 text-left col-sm-offset-2 contact_box">
+    <h1>Get in touch</h1>
+    <p>
+      Wish to join your talented team! Or how about just a friendly chat? Give me an email and we can grab a lovely coffee.
+    </p>
+    <h3>Email:</h3>
+    <p>
+      <a href="mailto:ccwang.sv@gmail.com?Subject=Hello%20Chongchong" target="_top">ccwang.sv@gmail.com</a>
+    </p>
+  </div>
+  <div class="col-sm-4 text-left col-sm-offset-1 contact_box">
+    <h1>Networks</h1>
+    <p>
+      Give me a follow on <a href="https://www.linkedin.com/in/chongchongwang" class="hover_a">LinkedIn</a>
+    </p>
+    <p>
+      Find my code on <a href="https://github.com/CcWang" class="hover_a">GitHub</a>
+    </p>
+    <p>
+      Find my
+      <a href="static/resume.pdf" target="_blank" class="hover_a">Resume </a>
+    </p>
+  </div>
+  <a href="" ng-click='gotoAnchor("cw")' id='back_to_top'>Back To Top</a>
+  <footer class="col-sm-6 col-sm-offset-3 text-center">
+    Copyright © 2016 Chongchong Wang.
+    <br>
+    <span>Full Stack Development | Javascript | Python | PHP | SQL</span>
+  </footer>
+</div>
+
 </body>
 </html>
