@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $('body').scrollspy({target: ".navbar", offset: 50});
   $(window).on('load',function(){
     $('.onload').addClass('onload');
     this.setTimeout(function(){
@@ -12,7 +11,7 @@ $(document).ready(function(){
     $('.project_box').each(function(){
       var wording=$(this).offset().top;
       var topOfWindow = $(window).scrollTop();
-      if (wording < topOfWindow+600){
+      if (wording < topOfWindow+500){
         // $(this).fadeIn();
         $(this).show('slow');
       }else{
