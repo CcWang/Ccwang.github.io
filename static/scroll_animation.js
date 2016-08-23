@@ -1,10 +1,19 @@
 $(document).ready(function(){
+
   $(window).on('load',function(){
     $('.onload').addClass('onload');
+    console.log('loaidng')
     this.setTimeout(function(){
       $('.onload').removeClass('onload');
       $('#loading').hide();
-    },0)
+    },100);
+  });
+  $(window).bind('scroll', function() {
+      if($(window).scrollTop() >= $('footer').offset().top + $('footer').outerHeight() - window.innerHeight) {
+          // alert('end reached');
+          // reach to the end,then show nav bar
+          $('.fixed-header').removeClass('header_hide');
+      }
   });
   $(window).scroll(function(){
     // console.log(wScroll
@@ -19,7 +28,6 @@ $(document).ready(function(){
     //     $(this).hide();
     //   }
     // })
-
     $('.projectImg').each(function(){
       var imagePos = $(this).offset().top;
 

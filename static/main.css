@@ -27,6 +27,9 @@ margin: 0 auto;
 	display: none;
 	background-color: #0E1013;
 }
+.header_hide{
+	display: none;
+}
 /*each section setting*/
 
 

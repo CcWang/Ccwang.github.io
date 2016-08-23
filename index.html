@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
   <meta charset='UTF-8'>
- <meta name="viewport" content="width=device-width, initial-scale=1.2">
+ <meta name="viewport" content="width=device-width">
   <title>Chongchong Wang | Full Stack Web Developer</title>
   <!-- Angular -->
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -37,8 +37,11 @@
 
 </head>
 <body ng-app="myApp" ng-controller = 'mainController' >
-
-<div class="fixed-header">
+<div id="loading">
+  <img src="static/images/loader.gif" alt="" id="loading-image"/>
+</div>
+<div class="onload">
+<div class="fixed-header header_hide">
 
 
   <nav class="navbar navbar-inverse">
@@ -48,7 +51,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <!-- <li class="active"><a href="" ng-click='gotoAnchor("cw")'>Chongchong Wang</a></li> -->
-        <li><a href="" ng-click='gotoAnchor("ab")'  class="hvr-float-shadow" style="color:white;">About</a></li>
+        <li><a href=""  ng-click='gotoAnchor("ab")'  class="hvr-float-shadow" style="color:white;">About</a></li>
         <li><a href="" ng-click='gotoAnchor("pr")'  class="hvr-float-shadow" style="color:white;">Projects</a></li>
         <li><a href="" ng-click='gotoAnchor("co")'  class="hvr-float-shadow"  style="color:white;">Hire Me</a></li>
       </ul>
@@ -60,14 +63,17 @@
   <div id="me" >
     <h1 >Hi, I'm <strong>Chongchong Wang</strong></h1>
     <h1 id="intro">{{intro}}</h1>
-    <div ng-if='intro.length == 24' class="text-center">
-        <button ng-click='gotoAnchor("co")'id="hire">
+    <div ng-if='intro.length == 24' class='text-center' >
+        <!-- <button ng-click='gotoAnchor("co")'id="hire">
             AVAILABLE FOR HIRE
-        </button>
-    </div>
-    <div ng-if='intro.length == 24' class="text-center">
+        </button> -->
+        <h3 style="margin-top:25px">
 
+          Looking for exciting new opportunities.
+
+        </h3>
     </div>
+
   </div>
 </div>
 
@@ -192,6 +198,6 @@
     <span>Full Stack Development | Javascript | Python | PHP | SQL</span>
   </footer>
 </div>
-
+</div>
 </body>
 </html>
