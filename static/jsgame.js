@@ -2,20 +2,26 @@ var myGamePiece;
 var myObstacle=[];
 var myScore;
 var go;
+var start_over = function(){
+  window.location.reload();
+}
+
 // myObstacle.push('hellp')
 
 function startGame(){
-  myGamePiece=new component(30,30,'red',10,120);
+  // myGamePiece=new component(30,30,'red',10,120);
+  myGamePiece=new component(100,100,'static/images/pikachu.png',10,120,'image');
   myScore = new component('30px','Consolas','black',280,40,'text');
   go = new component('50px','Consolas','red',80,150,'text');
+  myBackground = new component(660,400,'static/images/background_pokemon.png',0,0,'background');
   myGameArea.start();
 
 }
 var myGameArea = {
   canvas:document.createElement('canvas'),
   start:function(){
-    this.canvas.width=480;
-    this.canvas.height=300;
+    this.canvas.width=660;
+    this.canvas.height=400;
     this.context=this.canvas.getContext('2d');
     document.body.insertBefore(this.canvas,document.body.childNodes[0]);
     // adding multiple obstacles? need a property for counting frames, and a method for execute something at a given frame rate.
@@ -28,9 +34,13 @@ var myGameArea = {
     window.addEventListener('keydown',function(e){
       myGameArea.keys=(myGameArea.keys || [])
       myGameArea.keys[e.keyCode] = true;
+      myGamePiece.image.src='static/images/flying_pikachu.png'
+      // myGamePiece.update();
     })
     window.addEventListener('keyup',function(e) {
       myGameArea.keys[e.keyCode]=false;
+      myGamePiece.image.src='static/images/pikachu.png'
+      // myGamePiece.update()
     })
   },
 
@@ -38,12 +48,22 @@ var myGameArea = {
     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
   },
   stop:function(){
-    go.text='Game Over'
-    go.update()
+
     clearInterval(this.interval);
-    if (go.text=='Game Over') {
-      console.log('go')
-    }
+    // if (go.text=='Game Over') {
+    //   var btn = document.createElement('th')
+    //   var t=document.createTextNode('Start Over')
+    //   btn.appendChild(t);
+    //   btn.style.color='blue';
+    //   btn.onclick=function(){
+    //     startGame();
+    //     this.parentElement.removeChild(this);
+    //     go.text=''
+    //     go.update()
+    //   }
+    //   // btn.addEventListener('click',startGame());
+    //   document.body.appendChild(btn);
+    // }
   }
 }
 /*The everyinterval function returns true if the current framenumber corresponds with the given interval.
@@ -58,33 +78,57 @@ function everyInterval(n){
 function component(width,height,color,x,y,type){
   // console.log(width,height,color,x,y)
   this.type=type;
+  if(type=='image' || type == 'background'){
+    this.image=new Image();
+    this.image.src=color;
+  }
   this.width=width;
   this.height=height;
   this.speedX=0;
   this.speedY=0;
   this.x=x;
   this.y=y;
+  this.gravity = 0.05;
+  this.gravitySpeed = 0;
   this.update =function () {
     ctx=myGameArea.context;
     if(this.type=='text'){
       ctx.font=this.width + ' '+this.height;
       ctx.fillStyle=color;
       ctx.fillText(this.text,this.x,this.y);
+    }else if (this.type=='image' || type =='background') {
+      ctx.drawImage(this.image,this.x,this.y,this.width,this.height);
+      // if(this.type=='background'){
+      //   ctx.drawImage(this.image,this.x + this.width, this.y, this.width, this.height);
+      // }
     }else{
       ctx.fillStyle=color;
       ctx.fillRect(this.x,this.y,this.width,this.height);
     }
   };
   this.newPos=function(){
+    this.gravitySpeed +=this.gravity;
     this.x+=this.speedX;
-    this.y+=this.speedY;
+    this.y+=this.speedY+this.gravitySpeed;
+    this.hitBottom();
+    if(this.type =='background'){
+      if(this.x ==-(this.width)){
+        this.x=0;
+      }
+    }
   };
+  this.hitBottom = function(){
+    var rockBottom = myGameArea.canvas.height - this.height;
+    if(this.y>rockBottom){
+      this.y=rockBottom;
+    }
+  }
   // check if two component hit
   this.crashWith = function(otherobj){
-    var myleft=this.x;
-    var myright=this.x+(this.width);
-    var mytop=this.y;
-    var mybottom = this.y+(this.height);
+    var myleft=this.x-20;
+    var myright=myleft+(this.width);
+    var mytop=this.y-20;
+    var mybottom = mytop+(this.height);
     var otherleft=otherobj.x;
     var otherright=otherobj.x+(otherobj.width);
     var othertop=otherobj.y;
@@ -99,11 +143,14 @@ function component(width,height,color,x,y,type){
 
 // make it move
 function updateGameArea() {
-  var x,height,gap,minHeight,maxHeight,minGap,maxGap;
+  var x,height,gap,minHeight,maxHeight,minGap,maxGap,width_ob;
   // check if two component hitted if true, stop, else continue move
   for (i=0;i<myObstacle.length;i+=1){
     if(myGamePiece.crashWith(myObstacle[i])){
       myGameArea.stop();
+      // myGameArea.clear()
+      // myGamePiece.image.src='static/images/pikachu_go.png'
+      // myGamePiece.update();
       return;
     }
   }
@@ -112,17 +159,21 @@ function updateGameArea() {
   // if we leave out the clear() method, all movements of the component will leave a trail of where it was positioned in the last frame:
   // if make a snake game, than remove the clear() function
   myGameArea.clear();
+  // myBackground.speedX =-1;
+  myBackground.newPos();
+  myBackground.update();
   myGameArea.frameNo +=1;
-  if (myGameArea.frameNo == 1 || everyInterval(150)) {
+  if (myGameArea.frameNo == 1 || everyInterval(300)) {
     x = myGameArea.canvas.width;
     minHeight = 20;
-    maxHeight=200;
+    maxHeight=myGameArea.canvas.height/2;
     height=Math.floor(Math.random()*(maxHeight - minHeight + 1)+ minHeight);
-    minGap = 50;
-    maxGap=200;
+    minGap = 130;
+    maxGap=myGameArea.canvas.height/3;
     gap=Math.floor(Math.random()*(maxGap - minGap + 1)+ minGap);
-    myObstacle.push(new component(10,height,'green',x,0));
-    myObstacle.push(new component(10, x - height - gap, "green", x, height + gap));
+    width_ob=Math.floor(Math.random()*(50-20)+20);
+    myObstacle.push(new component(width_ob,height,'blue',x,0));
+    myObstacle.push(new component(width_ob, x - height - gap, "blue", x, height + gap));
 }
   for(i=0;i<myObstacle.length;i+=1){
     // make obstacle move constantly
@@ -147,44 +198,9 @@ function updateGameArea() {
 
 }
 
-// move and button
-function moveup() {
-  myGamePiece.speedY -=1;
-}
-function movedown(){
-  myGamePiece.speedY +=1;
-}
-
-function moveleft(){
-  myGamePiece.speedX-=1;
-}
-function moveright() {
-  myGamePiece.speedX +=1;
-}
 // stop move
 function stopMove(){
   myGamePiece.speedX =0;
   myGamePiece.speedY = 0;
   // alert('Game Over');
 }
-// replaced by myGameArea eventlinster
-// window.onkeydown =function (e) {
-//   // 38 ->up
-//   // 40 ->down
-//   // 37 ->left
-//   // 39->right
-//   // 32->space
-//
-//   if (e.keyCode === 38){
-//     moveup();
-//   }else if (e.keyCode === 40) {
-//     movedown();
-//   }else if (e.keyCode === 37) {
-//     moveleft();
-//   }else if (e.keyCode === 39) {
-//     moveright();
-//   }
-// }
-// window.onkeyup =function (e) {
-//   stopMove();
-// }
