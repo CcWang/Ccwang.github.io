@@ -1,18 +1,19 @@
 var myGamePiece;
 var myObstacle=[];
 var myScore;
+var game_start=false;
 var go;
-var start_over = function(){
-  window.location.reload();
-}
+// var start_over = function(){
+//   // window.location.reload();
+//   startGame()
+// }
 
 // myObstacle.push('hellp')
 
 function startGame(){
   // myGamePiece=new component(30,30,'red',10,120);
-  myGamePiece=new component(100,100,'static/images/pikachu.png',10,120,'image');
+  myGamePiece=new component(100,100,'static/images/flying_pikachu.png',10,120,'image');
   myScore = new component('30px','Consolas','black',280,40,'text');
-  go = new component('50px','Consolas','red',80,150,'text');
   myBackground = new component(660,400,'static/images/background_pokemon.png',0,0,'background');
   myGameArea.start();
 
@@ -20,9 +21,11 @@ function startGame(){
 var myGameArea = {
   canvas:document.createElement('canvas'),
   start:function(){
+    console.log('running');
     this.canvas.width=660;
     this.canvas.height=400;
     this.context=this.canvas.getContext('2d');
+    document.getElementById('start_pic').setAttribute('display','none');
     document.body.insertBefore(this.canvas,document.body.childNodes[0]);
     // adding multiple obstacles? need a property for counting frames, and a method for execute something at a given frame rate.
     this.frameNo=0;
@@ -34,11 +37,11 @@ var myGameArea = {
     window.addEventListener('keydown',function(e){
       myGameArea.keys=(myGameArea.keys || [])
       myGameArea.keys[e.keyCode] = true;
-      myGamePiece.image.src='static/images/flying_pikachu.png'
+      // myGamePiece.image.src='static/images/flying_pikachu.png'
     })
     window.addEventListener('keyup',function(e) {
       myGameArea.keys[e.keyCode]=false;
-      myGamePiece.image.src='static/images/pikachu.png';
+      // myGamePiece.image.src='static/images/pikachu.png';
       myGamePiece.gravity=0.1
     })
   },
@@ -47,22 +50,7 @@ var myGameArea = {
     this.context.clearRect(0,0,this.canvas.width,this.canvas.height);
   },
   stop:function(){
-
-    clearInterval(this.interval);
-    // if (go.text=='Game Over') {
-    //   var btn = document.createElement('th')
-    //   var t=document.createTextNode('Start Over')
-    //   btn.appendChild(t);
-    //   btn.style.color='blue';
-    //   btn.onclick=function(){
-    //     startGame();
-    //     this.parentElement.removeChild(this);
-    //     go.text=''
-    //     go.update()
-    //   }
-    //   // btn.addEventListener('click',startGame());
-    //   document.body.appendChild(btn);
-    // }
+    window.clearInterval(this.interval);
   }
 }
 /*The everyinterval function returns true if the current framenumber corresponds with the given interval.
@@ -147,20 +135,32 @@ function component(width,height,color,x,y,type){
     return crash;
   }
 }
-
+function check_gameover(game_over){
+  if (game_over){
+    myGameArea.stop();
+  }
+}
 // make it move
-function updateGameArea() {
+function updateGameArea(cb) {
   var x,height,gap,minHeight,maxHeight,minGap,maxGap,width_ob;
   // check if two component hitted if true, stop, else continue move
   for (i=0;i<myObstacle.length;i+=1){
     if(myGamePiece.crashWith(myObstacle[i])){
-      myGameArea.stop();
-      // myGameArea.clear()
-      // myGamePiece.image.src='static/images/pikachu_go.png'
-      // myGamePiece.update();
+      myGameArea.clear()
+      myGamePiece.image.src='static/images/pikachu_go.png';
+      go = new component('50px','Consolas','red',myGamePiece.x,(myGamePiece.y+myGamePiece.height+30),'text');
+      go.text='Game Over';
+      myGamePiece.update();
+      go.update();
+      myScore.text='Your Score is:'+ myGameArea.frameNo *100;
+      myScore.x=myGamePiece.x;
+      myScore.y=go.y+30;
+      myScore.update();
+      // myGameArea.stop();
+      // cb(game_over);
       return;
     }
-  }
+  };
 
   // clear canvas
   // if we leave out the clear() method, all movements of the component will leave a trail of where it was positioned in the last frame:
@@ -179,8 +179,9 @@ function updateGameArea() {
     maxGap=myGameArea.canvas.height/3;
     gap=Math.floor(Math.random()*(maxGap - minGap + 1)+ minGap);
     width_ob=Math.floor(Math.random()*(50-20)+20);
-    myObstacle.push(new component(50,50,'blue',x,width_ob+20));
-    myObstacle.push(new component(50, 50, "blue", x+15, height + gap));
+    // component(100,100,'static/images/flying_pikachu.png',10,120,'image');
+    myObstacle.push(new component(50,50,'static/images/ball.png',x-50,width_ob+20,'image'));
+    myObstacle.push(new component(50, 50, "static/images/ball.png", x-25, height + gap,'image'));
 }
   for(i=0;i<myObstacle.length;i+=1){
     // make obstacle move constantly
