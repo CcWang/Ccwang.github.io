@@ -27,7 +27,7 @@ var myGameArea = {
     // adding multiple obstacles? need a property for counting frames, and a method for execute something at a given frame rate.
     this.frameNo=0;
     // the smaller, the harder
-    this.hardLevel=10;
+    this.hardLevel=15;
     this.interval=setInterval(updateGameArea,this.hardLevel);
     // add event listerner to bind with keybaord
     // if more than one key is pressed, created a keys array(key:value)
@@ -35,12 +35,11 @@ var myGameArea = {
       myGameArea.keys=(myGameArea.keys || [])
       myGameArea.keys[e.keyCode] = true;
       myGamePiece.image.src='static/images/flying_pikachu.png'
-      // myGamePiece.update();
     })
     window.addEventListener('keyup',function(e) {
       myGameArea.keys[e.keyCode]=false;
-      myGamePiece.image.src='static/images/pikachu.png'
-      // myGamePiece.update()
+      myGamePiece.image.src='static/images/pikachu.png';
+      myGamePiece.gravity=0.1
     })
   },
 
@@ -111,6 +110,7 @@ function component(width,height,color,x,y,type){
     this.x+=this.speedX;
     this.y+=this.speedY+this.gravitySpeed;
     this.hitBottom();
+    this.hitTop();
     if(this.type =='background'){
       if(this.x ==-(this.width)){
         this.x=0;
@@ -121,13 +121,20 @@ function component(width,height,color,x,y,type){
     var rockBottom = myGameArea.canvas.height - this.height;
     if(this.y>rockBottom){
       this.y=rockBottom;
+      this.gravity=-0.05;
+    }
+  }
+  this.hitTop=function(){
+    if(this.y<0){
+      this.y=0;
+      this.gravity=0.3;
     }
   }
   // check if two component hit
   this.crashWith = function(otherobj){
     var myleft=this.x-20;
     var myright=myleft+(this.width);
-    var mytop=this.y-20;
+    var mytop=this.y+20;
     var mybottom = mytop+(this.height);
     var otherleft=otherobj.x;
     var otherright=otherobj.x+(otherobj.width);
@@ -172,8 +179,8 @@ function updateGameArea() {
     maxGap=myGameArea.canvas.height/3;
     gap=Math.floor(Math.random()*(maxGap - minGap + 1)+ minGap);
     width_ob=Math.floor(Math.random()*(50-20)+20);
-    myObstacle.push(new component(width_ob,height,'blue',x,0));
-    myObstacle.push(new component(width_ob, x - height - gap, "blue", x, height + gap));
+    myObstacle.push(new component(50,50,'blue',x,width_ob+20));
+    myObstacle.push(new component(50, 50, "blue", x+15, height + gap));
 }
   for(i=0;i<myObstacle.length;i+=1){
     // make obstacle move constantly
@@ -187,6 +194,8 @@ function updateGameArea() {
   if(myGameArea.keys && myGameArea.keys[39]){myGamePiece.speedX=1;};
   if(myGameArea.keys && myGameArea.keys[38]){myGamePiece.speedY = -1;};
   if(myGameArea.keys && myGameArea.keys[40]){myGamePiece.speedY = 1;};
+  if(myGameArea.keys && myGameArea.keys[32]){myGamePiece.gravity =-0.2;};
+
   // update score
   myScore.text='Score:' + 100*myGameArea.frameNo;
   myScore.update();
@@ -197,6 +206,7 @@ function updateGameArea() {
 
 
 }
+
 
 // stop move
 function stopMove(){
