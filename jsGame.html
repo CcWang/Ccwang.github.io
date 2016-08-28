@@ -5,14 +5,38 @@
     <title>Flying Pokemon</title>
     <script type="text/javascript" src='static/jsgame.js'></script>
     <style media="screen">
+      body{
+        background-color: #132B33;
+        color: white;
+      }
+      #game_area{
+        height: 400px;
+        width: 660px;
+        background-color: #002933;
+        text-align: center;
+        border: 10px solid #FFF;
+        position: relative;
+      }
+      div{
+        text-align: center;
+        position: relative;
+        margin: 50px auto;
+      }
       canvas{
-        background: lightblue;
+        background: #002933;
       }
     </style>
   </head>
   <body onload="startGame()">
-    <div id="start_pic" style="display:none;">
-      <img src="static/images/background_pokemon.png"/>
+    <div>
+
+      <h2>Use space, and key up/down/left/right to control floating pikachu</h2>
+    </div>
+    <div id='game_area'>
+
+    </div>
+    <div id="game_over">
+
     </div>
     <!-- <button onclick="startGame()">Start Over </button> -->
   </body>

@@ -13,8 +13,10 @@ var go;
 function startGame(){
   // myGamePiece=new component(30,30,'red',10,120);
   myGamePiece=new component(100,100,'static/images/flying_pikachu.png',10,120,'image');
-  myScore = new component('30px','Consolas','black',280,40,'text');
+  myScore = new component('30px','Consolas','#002933',500,40,'text');
   myBackground = new component(660,400,'static/images/background_pokemon.png',0,0,'background');
+  myLivePiece = new component(30,30,'static/images/pikachu_live.png',0,0,'image');
+  myLiveScore= new component(100,20,'red',30,30);
   myGameArea.start();
 
 }
@@ -25,10 +27,10 @@ var myGameArea = {
     this.canvas.width=660;
     this.canvas.height=400;
     this.context=this.canvas.getContext('2d');
-    document.getElementById('start_pic').setAttribute('display','none');
-    document.body.insertBefore(this.canvas,document.body.childNodes[0]);
+    document.getElementById('game_area').insertBefore(this.canvas,document.getElementById('game_area').childNodes[0]);
     // adding multiple obstacles? need a property for counting frames, and a method for execute something at a given frame rate.
     this.frameNo=0;
+    this.live=10;
     // the smaller, the harder
     this.hardLevel=15;
     this.interval=setInterval(updateGameArea,this.hardLevel);
@@ -120,10 +122,10 @@ function component(width,height,color,x,y,type){
   }
   // check if two component hit
   this.crashWith = function(otherobj){
-    var myleft=this.x-20;
-    var myright=myleft+(this.width);
-    var mytop=this.y+20;
-    var mybottom = mytop+(this.height);
+    var myleft=this.x;
+    var myright=myleft+(this.width- 20);
+    var mytop=this.y;
+    var mybottom = mytop+(this.height-20);
     var otherleft=otherobj.x;
     var otherright=otherobj.x+(otherobj.width);
     var othertop=otherobj.y;
@@ -135,30 +137,57 @@ function component(width,height,color,x,y,type){
     return crash;
   }
 }
-function check_gameover(game_over){
-  if (game_over){
-    myGameArea.stop();
+function game_over(score){
+  // create game over picture
+  var image=document.createElement('img')
+  var game_area=document.getElementById('game_area');
+  image.src='static/images/catch_p.gif';
+  game_area.style.width='400px';
+  game_area.style.height='225px';
+  game_area.insertBefore(image,game_area.childNodes[0]);
+  game_area.removeChild(game_area.childNodes[1]);
+  myGameArea.stop();
+  // insert Score and start over button
+  var div=document.createElement('h1')
+
+  // var game_over=document.getElementById('game_over')
+  div.innerHTML='Game Over';
+  var score_d = document.createElement('h2')
+  // console.log(score);
+  score_d.innerHTML='Your Score is: '+ score;
+  var btn = document.createElement('input');
+  btn.type='button';
+  btn.value='Start Over';
+  btn.style.width='120px';
+  btn.style.height='80px';
+  btn.style.color='#FD7222';
+  btn.onclick=function(){
+    window.location.reload();
   }
-}
+  document.getElementById('game_over').appendChild(div);
+  document.getElementById('game_over').appendChild(score_d);
+  document.getElementById('game_over').appendChild(btn);
+  }
 // make it move
-function updateGameArea(cb) {
+function updateGameArea() {
   var x,height,gap,minHeight,maxHeight,minGap,maxGap,width_ob;
   // check if two component hitted if true, stop, else continue move
   for (i=0;i<myObstacle.length;i+=1){
     if(myGamePiece.crashWith(myObstacle[i])){
-      myGameArea.clear()
-      myGamePiece.image.src='static/images/pikachu_go.png';
-      go = new component('50px','Consolas','red',myGamePiece.x,(myGamePiece.y+myGamePiece.height+30),'text');
-      go.text='Game Over';
-      myGamePiece.update();
-      go.update();
-      myScore.text='Your Score is:'+ myGameArea.frameNo *100;
-      myScore.x=myGamePiece.x;
-      myScore.y=go.y+30;
-      myScore.update();
-      // myGameArea.stop();
-      // cb(game_over);
-      return;
+      console.log('crash');
+    //   myGamePiece.live -=1;
+    //   myLiveScore.width-=10;
+    //   myLiveScore.update();
+    //   if(myGamePiece.live <3){
+    //     myLivePiece.image.src='static/images/pikachu_dieing.png';
+    //     myLivePiece.update();
+    //     continue;
+    //   }else if (myGamePiece.live == 0){
+    //
+    //   }
+        myGameArea.clear()
+        game_over(myGameArea.frameNo*10);
+        return;
     }
   };
 
@@ -167,8 +196,9 @@ function updateGameArea(cb) {
   // if make a snake game, than remove the clear() function
   myGameArea.clear();
   // myBackground.speedX =-1;
-  myBackground.newPos();
   myBackground.update();
+  myLivePiece.update();
+  myLiveScore.update();
   myGameArea.frameNo +=1;
   if (myGameArea.frameNo == 1 || everyInterval(300)) {
     x = myGameArea.canvas.width;
@@ -198,7 +228,7 @@ function updateGameArea(cb) {
   if(myGameArea.keys && myGameArea.keys[32]){myGamePiece.gravity =-0.2;};
 
   // update score
-  myScore.text='Score:' + 100*myGameArea.frameNo;
+  myScore.text='Score:' + 10*myGameArea.frameNo;
   myScore.update();
   // make it move
   myGamePiece.newPos();
