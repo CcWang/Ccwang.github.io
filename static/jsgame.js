@@ -130,9 +130,26 @@ function component(width,height,color,x,y,type){
     var otherright=otherobj.x+(otherobj.width);
     var othertop=otherobj.y;
     var otherbottom=otherobj.y+(otherobj.height);
-    var crash = true;
+    var crash =true;
     if (mybottom < othertop || mytop > otherbottom || myleft > otherright || myright < otherleft){
       crash = false;
+    }else{
+      if(myGamePiece.live <=10 && myGamePiece.live >=3){
+          myGamePiece.live -=1;
+          myLiveScore.width-=10;
+          myLiveScore.update();
+          myGamePiece.update();
+          crash = false;
+      }else if (myGamePiece.live < 3) {
+        myGamePiece.live -=1;
+        myLiveScore.width-=10;
+        myLivePiece.image.src='static/images/pikachu_dieing.png';
+        myLivePiece.update();
+        myGamePiece.update();
+        crash = false;
+      }else if (myGamePiece.live ==0 ) {
+        crash =true;
+      }
     }
     return crash;
   }
@@ -174,7 +191,6 @@ function updateGameArea() {
   // check if two component hitted if true, stop, else continue move
   for (i=0;i<myObstacle.length;i+=1){
     if(myGamePiece.crashWith(myObstacle[i])){
-      console.log('crash');
     //   myGamePiece.live -=1;
     //   myLiveScore.width-=10;
     //   myLiveScore.update();
