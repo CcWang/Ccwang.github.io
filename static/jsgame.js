@@ -15,8 +15,8 @@ function startGame(){
   myGamePiece=new component(100,100,'static/images/flying_pikachu.png',10,120,'image');
   myScore = new component('30px','Consolas','#002933',500,40,'text');
   myBackground = new component(660,400,'static/images/background_pokemon.png',0,0,'background');
-  myLivePiece = new component(30,30,'static/images/pikachu_live.png',0,0,'image');
-  myLiveScore= new component(100,20,'red',30,30);
+  // myLivePiece = new component(30,30,'static/images/pikachu_live.png',0,0,'image');
+  // myLiveScore= new component(100,20,'red',30,30);
   myGameArea.start();
 
 }
@@ -133,24 +133,7 @@ function component(width,height,color,x,y,type){
     var crash =true;
     if (mybottom < othertop || mytop > otherbottom || myleft > otherright || myright < otherleft){
       crash = false;
-    }else{
-      if(myGamePiece.live <=10 && myGamePiece.live >=3){
-          myGamePiece.live -=1;
-          myLiveScore.width-=10;
-          myLiveScore.update();
-          myGamePiece.update();
-          crash = false;
-      }else if (myGamePiece.live < 3) {
-        myGamePiece.live -=1;
-        myLiveScore.width-=10;
-        myLivePiece.image.src='static/images/pikachu_dieing.png';
-        myLivePiece.update();
-        myGamePiece.update();
-        crash = false;
-      }else if (myGamePiece.live ==0 ) {
-        crash =true;
       }
-    }
     return crash;
   }
 }
@@ -191,16 +174,6 @@ function updateGameArea() {
   // check if two component hitted if true, stop, else continue move
   for (i=0;i<myObstacle.length;i+=1){
     if(myGamePiece.crashWith(myObstacle[i])){
-    //   myGamePiece.live -=1;
-    //   myLiveScore.width-=10;
-    //   myLiveScore.update();
-    //   if(myGamePiece.live <3){
-    //     myLivePiece.image.src='static/images/pikachu_dieing.png';
-    //     myLivePiece.update();
-    //     continue;
-    //   }else if (myGamePiece.live == 0){
-    //
-    //   }
         myGameArea.clear()
         game_over(myGameArea.frameNo*10);
         return;
@@ -213,8 +186,8 @@ function updateGameArea() {
   myGameArea.clear();
   // myBackground.speedX =-1;
   myBackground.update();
-  myLivePiece.update();
-  myLiveScore.update();
+  // myLivePiece.update();
+  // myLiveScore.update();
   myGameArea.frameNo +=1;
   if (myGameArea.frameNo == 1 || everyInterval(300)) {
     x = myGameArea.canvas.width;
